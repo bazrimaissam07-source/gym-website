@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gorilla Gym – Admin Login</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .login-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--s8) var(--s4);
+    }
+    #login-error {
+      display: none;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.35);
+      border-left: 3px solid #f87171;
+      border-radius: var(--r);
+      color: #f87171;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.65rem var(--s2);
+      margin-top: var(--s2);
+    }
+    #login-error.visible { display: block; }
+  </style>
+</head>
+<body style="padding-top:68px;">
+
+  <header id="site-header" class="scrolled">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo-icon">GG</div>
+        <div class="logo-text-wrap">
+          <span class="logo-name">GORILLA <span>GYM</span></span>
+          <span class="logo-tagline">Evolve Your Body Or Stay Weak</span>
+        </div>
+      </a>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="login-wrap">
+    <div style="width:100%;max-width:400px;">
+      <span class="section-eyebrow" style="display:block;margin-bottom:var(--s2);">Restricted Access</span>
+      <h2 style="margin-bottom:var(--s2);">ADMIN <span style="color:var(--cyan);">LOGIN</span></h2>
+      <p style="margin-bottom:var(--s4);">This area is restricted to authorised staff only.</p>
+
+      <form id="login-form" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Credentials</legend>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            autocomplete="username"
+            required
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          />
+        </fieldset>
+
+        <div id="login-error" role="alert">Invalid username or password. Please try again.</div>
+
+        <button type="submit" style="width:100%;justify-content:center;margin-top:var(--s2);">
+          Login →
+        </button>
+      </form>
+
+      <p style="margin-top:var(--s3);text-align:center;">
+        <a href="index.html" style="color:rgba(255,255,255,0.3);font-size:0.85rem;">← Return to Main Site</a>
+      </p>
+    </div>
+  </div>
+
+  <footer style="background:var(--dark-2);border-top:1px solid var(--border);padding:var(--s3) var(--s4);text-align:center;">
+    <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">&copy; 2026 Gorilla Gym — Admin Panel</p>
+  </footer>
+
+  <script>
+    "use strict";
+
+    // NOTE: Credentials are checked client-side for this demo only.
+    // In production, replace with a real server-side authentication endpoint.
+    const ADMIN_CREDENTIALS = { username: "admin", password: "gorilla2026" };
+    const AUTH_SESSION_KEY  = "gg_admin_auth";
+
+    // If already logged in, skip the login page
+    if (sessionStorage.getItem(AUTH_SESSION_KEY) === "1") {
+      window.location.replace("admin-dashboard.html");
+    }
+
+    function showFieldError(input, message) {
+      clearFieldError(input);
+      input.style.borderColor = "#e05c5c";
+      const err = document.createElement("span");
+      err.className = "field-error";
+      err.setAttribute("role", "alert");
+      err.textContent = message;
+      input.insertAdjacentElement("afterend", err);
+    }
+
+    function clearFieldError(input) {
+      input.style.borderColor = "";
+      const existing = input.parentElement.querySelector(".field-error");
+      if (existing) existing.remove();
+    }
+
+    function showLoginError() { document.getElementById("login-error").classList.add("visible"); }
+    function hideLoginError() { document.getElementById("login-error").classList.remove("visible"); }
+
+    function validateForm(username, password) {
+      let valid = true;
+      const u = document.getElementById("username");
+      const p = document.getElementById("password");
+      if (!username.trim()) { showFieldError(u, "Username is required."); valid = false; }
+      else clearFieldError(u);
+      if (!password) { showFieldError(p, "Password is required."); valid = false; }
+      else clearFieldError(p);
+      return valid;
+    }
+
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      hideLoginError();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (!validateForm(username, password)) return;
+
+      if (
+        username.trim() === ADMIN_CREDENTIALS.username &&
+        password           === ADMIN_CREDENTIALS.password
+      ) {
+        // FIX: set auth token in sessionStorage before redirecting
+        // so admin pages can guard against direct URL access
+        sessionStorage.setItem(AUTH_SESSION_KEY, "1");
+        window.location.href = "admin-dashboard.html";
+      } else {
+        showLoginError();
+        document.getElementById("username").style.borderColor = "#e05c5c";
+        document.getElementById("password").style.borderColor = "#e05c5c";
+        document.getElementById("password").value = "";
+        document.getElementById("password").focus();
+      }
+    });
+
+    ["username", "password"].forEach(function (id) {
+      document.getElementById(id).addEventListener("input", function () {
+        this.style.borderColor = "";
+        hideLoginError();
+        const err = this.parentElement.querySelector(".field-error");
+        if (err) err.remove();
+      });
+    });
+  </script>
+
+</body>
+</html>

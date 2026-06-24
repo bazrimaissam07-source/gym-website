@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla Gym – Classes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      background-image: url("classes-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+  <!-- FIX: added id="site-header" so scroll listener can target it -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo-icon">GG</div>
+        <div class="logo-text-wrap">
+          <span class="logo-name">GORILLA <span>GYM</span></span>
+          <span class="logo-tagline">Evolve Your Body Or Stay Weak</span>
+        </div>
+      </a>
+      <nav>
+        <ul id="main-nav-ul">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="classes.html">Classes</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li class="nav-cta"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-social">
+        <a href="https://instagram.com/gorylla_gym">IG</a>
+        <a href="https://facebook.com/gorillagym">FB</a>
+        <a href="https://youtube.com/@Gorillagym-g4h">YT</a>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('main-nav-ul').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- FIX: added scroll listener (was missing on this page) -->
+  <script>
+    window.addEventListener('scroll', function () {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="section-label">Get Moving</span>
+      <h2>Our <span>Classes</span></h2>
+      <p>Find a class that fits your level, schedule, and goals. All classes are led by certified instructors and open to members across all plans.</p>
+    </div>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div id="filter-controls"></div>
+        <div class="table-wrap">
+          <table>
+            <caption>Weekly Class Schedule</caption>
+            <thead>
+              <tr>
+                <th id="sort-name">Class Name</th>
+                <th>Trainer</th>
+                <th id="sort-day">Day</th>
+                <th id="sort-time">Time</th>
+                <th id="sort-duration">Duration</th>
+                <th>Difficulty</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="classes-tbody">
+              <tr><td colspan="7" style="text-align:center;padding:1.5rem;color:rgba(255,255,255,0.3);">Loading classes…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">GORILLA <span>GYM</span></a>
+          <p>Constantine's most complete fitness facility. Built for those who are serious about results.</p>
+          <ul class="footer-social">
+            <li><a href="https://instagram.com/gorylla_gym">IG</a></li>
+            <li><a href="https://facebook.com/gorillagym">FB</a></li>
+            <li><a href="https://youtube.com/@Gorillagym-g4h">YT</a></li>
+          </ul>
+        </div>
+        <div class="footer-col"><h3>Navigate</h3><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h3>Contact</h3><address>
+          R docteur Calmette,<br/>Constantine 25000, Algeria<br/>
+          <a href="tel:+213559062740">+213 559 062 740</a><br/>
+          <a href="mailto:gorillagym25@gmail.com">gorillagym25@gmail.com</a>
+        </address></div>
+        <div class="footer-col"><h3>Hours</h3>
+          <table class="footer-hours-table"><tbody>
+            <tr><td>Sat–Thu</td><td>06:00 – 00:00</td></tr>
+            <tr><td>Friday</td><td>16:00 – 23:00</td></tr>
+            <tr><td>Holidays</td><td>08:00 – 18:00</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gorilla Gym. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="classes-filter.js"></script>
+</body>
+</html>

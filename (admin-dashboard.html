@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard – Gorilla Gym</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body style="padding-top:68px;">
+
+  <!-- FIX: auth guard — redirect to login if not authenticated -->
+  <script>
+    if (sessionStorage.getItem("gg_admin_auth") !== "1") {
+      window.location.replace("admin-login.html");
+    }
+  </script>
+
+  <header id="site-header" class="scrolled">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo-icon">GG</div>
+        <div class="logo-text-wrap">
+          <span class="logo-name">GORILLA <span>GYM</span></span>
+          <span class="logo-tagline">Evolve Your Body Or Stay Weak</span>
+        </div>
+      </a>
+      <div style="color:rgba(255,255,255,0.4);font-size:0.8rem;">
+        Welcome, Admin &nbsp;|&nbsp;
+        <a href="#" id="logout-btn" style="color:var(--cyan);">Logout</a>
+      </div>
+      <div></div>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById("logout-btn").addEventListener("click", function (e) {
+      e.preventDefault();
+      sessionStorage.removeItem("gg_admin_auth");
+      window.location.href = "admin-login.html";
+    });
+  </script>
+
+  <!-- FIX: removed inline style="display:none" — CSS media query uses !important
+       so it works, but the inline style is fragile. Let CSS own the visibility. -->
+  <div class="admin-topnav">
+    <a href="#">Members</a>
+    <a href="classes.html">Classes</a>
+    <a href="#">Subscriptions</a>
+    <a href="trainers.html">Trainers</a>
+    <a href="#">Orders</a>
+    <a href="admin-plans.html">Plan Management</a>
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="index.html">← Main Site</a>
+  </div>
+
+  <div class="admin-layout" style="max-width:1280px;margin:var(--s8) auto;padding:0 var(--s4);display:grid;grid-template-columns:210px 1fr;gap:var(--s4);align-items:start;">
+    <aside class="admin-sidebar" style="background:var(--dark-2);border:1px solid var(--border);border-radius:var(--r2);padding:var(--s4);">
+      <div style="font-size:0.6rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);margin-bottom:var(--s3);">Admin Menu</div>
+      <ul style="list-style:none;padding:0;">
+        <li style="margin-bottom:0.5rem;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">Members</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="classes.html" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">Classes</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">Subscriptions</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="trainers.html" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">Trainers</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="#" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">Orders</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="admin-plans.html" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">Plan Management</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="admin-dashboard.html" style="color:var(--cyan);font-size:0.85rem;text-decoration:none;">Dashboard</a></li>
+        <li style="margin-bottom:0.5rem;"><a href="index.html" style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;">← Main Site</a></li>
+      </ul>
+    </aside>
+    <main>
+      <div style="margin-bottom:var(--s6);">
+        <span class="section-eyebrow" style="display:block;margin-bottom:var(--s3);">Overview</span>
+        <div class="grid-4 stat-cards">
+          <div class="facility-card" style="text-align:center;"><span class="facility-icon">👥</span><h3 style="font-size:2.5rem;color:var(--cyan);">342</h3><p style="font-size:0.8rem;">Total Members</p></div>
+          <div class="facility-card" style="text-align:center;"><span class="facility-icon">✅</span><h3 style="font-size:2.5rem;color:var(--cyan);">289</h3><p style="font-size:0.8rem;">Active Subscriptions</p></div>
+          <div class="facility-card" style="text-align:center;"><span class="facility-icon">🏃</span><h3 style="font-size:2.5rem;color:var(--cyan);">7</h3><p style="font-size:0.8rem;">Classes Today</p></div>
+          <div class="facility-card" style="text-align:center;"><span class="facility-icon">💰</span><h3 style="font-size:1.6rem;color:var(--cyan);">1,240,500</h3><p style="font-size:0.8rem;">Revenue DZD</p></div>
+        </div>
+      </div>
+      <div>
+        <span class="section-eyebrow" style="display:block;margin-bottom:var(--s3);">Recent Registrations</span>
+        <div class="table-wrap">
+          <table><caption>Last 5 New Members</caption>
+            <thead><tr><th>Full Name</th><th>Date</th><th>Plan</th></tr></thead>
+            <tbody>
+              <tr><td>Mehdi Larbi</td><td>2026-05-01</td><td><span class="badge badge-advanced">Gold</span></td></tr>
+              <tr><td>Yasmine Cherif</td><td>2026-04-30</td><td><span class="badge badge-intermediate">Silver</span></td></tr>
+              <tr><td>Bilal Amrani</td><td>2026-04-29</td><td><span class="badge badge-beginner">Bronze</span></td></tr>
+              <tr><td>Nour Bensalem</td><td>2026-04-28</td><td><span class="badge badge-intermediate">Silver</span></td></tr>
+              <tr><td>Riad Oukaci</td><td>2026-04-27</td><td><span class="badge badge-advanced">Gold</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer style="background:var(--dark-2);border-top:1px solid var(--border);padding:var(--s3) var(--s4);text-align:center;">
+    <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">&copy; 2026 Gorilla Gym — Admin Panel</p>
+  </footer>
+</body>
+</html>

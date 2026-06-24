@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla Gym – Membership</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      background-image: url("membership-bg.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+  <!-- FIX: added id="site-header" -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo-icon">GG</div>
+        <div class="logo-text-wrap">
+          <span class="logo-name">GORILLA <span>GYM</span></span>
+          <span class="logo-tagline">Evolve Your Body Or Stay Weak</span>
+        </div>
+      </a>
+      <nav>
+        <ul id="main-nav-ul">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li class="active"><a href="membership.html">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li class="nav-cta"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-social">
+        <a href="https://instagram.com/gorylla_gym">IG</a>
+        <a href="https://facebook.com/gorillagym">FB</a>
+        <a href="https://youtube.com/@Gorillagym-g4h">YT</a>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('main-nav-ul').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- FIX: added scroll listener -->
+  <script>
+    window.addEventListener('scroll', function () {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+  <div class="page-hero alt-bg">
+    <div class="page-hero-inner">
+      <span class="section-label">No Hidden Fees</span>
+      <h2>Membership <span>Plans</span></h2>
+      <p>Choose the plan that fits your goals. All memberships include full access to our facilities with no hidden fees.</p>
+    </div>
+  </div>
+
+  <main>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="plans-grid">
+
+          <div class="plan-card" id="bronze">
+            <div class="plan-tier">Starter</div>
+            <div class="plan-name">Bronze</div>
+            <div class="plan-price"><sup>DZD</sup>2,900</div>
+            <div class="plan-cycle">per month — perfect for getting started</div>
+            <dl>
+              <dt>Access</dt><dd>Full gym floor and cardio zone</dd>
+              <dt>Classes</dt><dd>2 group classes per month</dd>
+              <dt>Extras</dt><dd>Locker room and showers</dd>
+            </dl>
+            <ul class="plan-features">
+              <li>Full gym floor access</li>
+              <li>Cardio zone access</li>
+              <li>Locker room and showers</li>
+              <li>2 group classes per month</li>
+            </ul>
+            <a href="membership.html#register" class="plan-cta">Get Started</a>
+          </div>
+
+          <div class="plan-card featured" id="silver">
+            <div class="plan-badge">Most Popular</div>
+            <div class="plan-tier">Popular</div>
+            <div class="plan-name">Silver</div>
+            <div class="plan-price"><sup>DZD</sup>7,500</div>
+            <div class="plan-cycle">per quarter — our most popular plan</div>
+            <dl>
+              <dt>Access</dt><dd>Full gym, cardio zone, pool and recovery suite</dd>
+              <dt>Classes</dt><dd>Unlimited group classes</dd>
+              <dt>Extras</dt><dd>1 personal training session + nutrition guide</dd>
+            </dl>
+            <ul class="plan-features">
+              <li>Everything in Bronze</li>
+              <li>Unlimited group classes</li>
+              <li>Pool and recovery suite access</li>
+              <li>1 personal training session</li>
+              <li>Nutrition guide</li>
+            </ul>
+            <a href="membership.html#register" class="plan-cta">Get Started</a>
+          </div>
+
+          <div class="plan-card" id="gold">
+            <div class="plan-tier">Elite</div>
+            <div class="plan-name">Gold</div>
+            <div class="plan-price"><sup>DZD</sup>24,000</div>
+            <div class="plan-cycle">per year — the ultimate experience</div>
+            <dl>
+              <dt>Access</dt><dd>Full access to all facilities + priority booking</dd>
+              <dt>Classes</dt><dd>Unlimited group classes + unlimited personal training</dd>
+              <dt>Extras</dt><dd>Monthly body analysis, 4 guest passes, exclusive events</dd>
+            </dl>
+            <ul class="plan-features">
+              <li>Everything in Silver</li>
+              <li>Unlimited personal training</li>
+              <li>Priority class booking</li>
+              <li>Monthly body composition analysis</li>
+              <li>4 guest passes</li>
+              <li>Exclusive member events</li>
+            </ul>
+            <a href="membership.html#register" class="plan-cta">Get Started</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Easy Payment</span>
+          <h2>Payment Methods</h2>
+        </div>
+        <div class="grid-4">
+          <div class="facility-card"><span class="facility-icon">💳</span><h3>CIB Card</h3><p>Pay securely with your CIB bank card at reception or online.</p></div>
+          <div class="facility-card"><span class="facility-icon">📱</span><h3>Edahabia</h3><p>Use your Algerie Poste Edahabia card for quick contactless payment.</p></div>
+          <div class="facility-card"><span class="facility-icon">💵</span><h3>Cash</h3><p>Pay in cash at the reception desk during opening hours.</p></div>
+          <div class="facility-card"><span class="facility-icon">🏦</span><h3>Bank Transfer</h3><p>Transfer directly to our account — details provided on request.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="register">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Join Today</span>
+          <h2>Register Now</h2>
+          <p>Fill in the form below to create your membership and start your journey.</p>
+        </div>
+        <!-- FIX: added novalidate so JS handles all validation consistently -->
+        <form action="#" method="post" novalidate>
+          <fieldset>
+            <legend>Personal Information</legend>
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="e.g. Ahmed Benali" required />
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="e.g. ahmed@email.com" required autocomplete="email" />
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 0555 123 456" required autocomplete="tel" />
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required />
+          </fieldset>
+          <fieldset>
+            <legend>Choose Your Plan</legend>
+            <label><input type="radio" name="plan" value="bronze" required /> Bronze – 2,900 DZD / month</label>
+            <label><input type="radio" name="plan" value="silver" /> Silver – 7,500 DZD / quarter</label>
+            <label><input type="radio" name="plan" value="gold" /> Gold – 24,000 DZD / year</label>
+          </fieldset>
+          <fieldset>
+            <legend>Additional Information</legend>
+            <label for="goal">Fitness Goal</label>
+            <select id="goal" name="goal">
+              <option value="">-- Select a goal --</option>
+              <option value="weight-loss">Weight Loss</option>
+              <option value="muscle-gain">Muscle Gain</option>
+              <option value="endurance">Endurance</option>
+              <option value="flexibility">Flexibility</option>
+              <option value="general">General Fitness</option>
+            </select>
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Any medical conditions, injuries, or special requests..."></textarea>
+          </fieldset>
+          <fieldset>
+            <legend>Terms &amp; Conditions</legend>
+            <label><input type="checkbox" name="terms" required /> I agree to the Gorilla Gym terms and conditions and privacy policy.</label>
+          </fieldset>
+          <button type="submit">Submit Registration →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">GORILLA <span>GYM</span></a>
+          <p>Constantine's most complete fitness facility. Built for those who are serious about results.</p>
+          <ul class="footer-social">
+            <li><a href="https://instagram.com/gorylla_gym">IG</a></li>
+            <li><a href="https://facebook.com/gorillagym">FB</a></li>
+            <li><a href="https://youtube.com/@Gorillagym-g4h">YT</a></li>
+          </ul>
+        </div>
+        <div class="footer-col"><h3>Navigate</h3><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h3>Contact</h3><address>
+          R docteur Calmette,<br/>Constantine 25000, Algeria<br/>
+          <a href="tel:+213559062740">+213 559 062 740</a><br/>
+          <a href="mailto:gorillagym25@gmail.com">gorillagym25@gmail.com</a>
+        </address></div>
+        <div class="footer-col"><h3>Hours</h3>
+          <table class="footer-hours-table"><tbody>
+            <tr><td>Sat–Thu</td><td>06:00 – 00:00</td></tr>
+            <tr><td>Friday</td><td>16:00 – 23:00</td></tr>
+            <tr><td>Holidays</td><td>08:00 – 18:00</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gorilla Gym. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="plan-cart.js"></script>
+  <script src="membership-validation.js"></script>
+</body>
+</html>
