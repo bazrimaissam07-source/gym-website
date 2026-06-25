@@ -168,7 +168,7 @@ nav ul li.nav-cta a::after { display: none; }
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   text-align: center;
-  background: url("images/hero-bg.jpg") center center / cover no-repeat;
+  background: url("hero-bg.jpg") center center / cover no-repeat;
   background-color: var(--dark);
 }
 .hero::before {
